@@ -2,41 +2,71 @@ package com.ll;
 
 public class Calc
 {
-    public static int run(String calc)
+    public static int run(String exp)
     {
-        char[] chars = calc.toCharArray();
-        int[] num = new int[chars.length];
-        char operator = ' ';
+        if (exp.isBlank())
+            return 0;
 
-        int num1 = 0;
-        int num2 = 0;
+        final String[] expBits = exp.split(" ");
+        final String sign = expBits[1];
 
-        for (char c : chars)
+        int num1 = Integer.parseInt(expBits[0]);
+        int num2 = Integer.parseInt(expBits[2]);
+
+        switch (sign)
         {
-            if (c >= '0' && c <= '9')
-            {
-                if(num1 == 0)
-                    num1 = c - '0';
-                else
-                {
-                    num2 = c - '0';
-                }
-            } else if (c == '*' || c == '/' || c == '%' || c == '+' || c == '-')
-                operator = c;
+            case "+":
+                return num1 + num2;
+            case "-":
+                return num1 - num2;
+            case "*":
+                return num1 * num2;
+            case "/":
+                return num1 / num2;
+            case "%":
+                return num1 % num2;
+            default:
+                return 0;
         }
-
-        int result = 0;
-        if (operator == '*')
-            result = num1 * num2;
-        if (operator == '/')
-            result = num1 / num2;
-        if (operator == '%')
-            result = num1 % num2;
-        if (operator == '-')
-            result = num1 - num2;
-        if (operator == '+')
-            result = num1 + num2;
-
-        return result;
     }
 }
+
+//        if (exp.isBlank())
+//            return 0;
+//        if (exp.contains("+"))
+//        {
+//            String[] exps = exp.split(" \\+ ");
+//            int num1 = Integer.parseInt(exps[0]);
+//            int num2 = Integer.parseInt(exps[1]);
+//            return num1 + num2;
+//        }
+//        if (exp.contains("-"))
+//        {
+//            String[] exps = exp.split(" \\- ");
+//            int num1 = Integer.parseInt(exps[0]);
+//            int num2 = Integer.parseInt(exps[1]);
+//            return num1 - num2;
+//        }
+//        if (exp.contains("*"))
+//        {
+//            String[] exps = exp.split(" \\* ");
+//            int num1 = Integer.parseInt(exps[0]);
+//            int num2 = Integer.parseInt(exps[1]);
+//            return num1 * num2;
+//        }
+//        if (exp.contains("/"))
+//        {
+//            String[] exps = exp.split(" \\/ ");
+//            int num1 = Integer.parseInt(exps[0]);
+//            int num2 = Integer.parseInt(exps[1]);
+//            return num1 / num2;
+//        }
+//        if (exp.contains("%"))
+//        {
+//            String[] exps = exp.split(" \\% ");
+//            int num1 = Integer.parseInt(exps[0]);
+//            int num2 = Integer.parseInt(exps[1]);
+//            return num1 % num2;
+//        }
+//
+//        return 0;
