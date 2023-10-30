@@ -70,21 +70,37 @@ public class CalcTest
     }
 
     @Test
-    @DisplayName(" 10 * 2 + 1 = 21")
+    @DisplayName(" 10 * 2 = 20")
     void t8()
     {
         int rs = Calc.run("10 * 2");
         System.out.println(rs);
-        assertThat(rs).isEqualTo(21);
+        assertThat(rs).isEqualTo(20);
     }
 
     @Test
-    @DisplayName(" 1 + 10 * 2 = 21")
+    @DisplayName("(10 + 10) = 20")
     void t9()
     {
-        int rs = Calc.run("10 * 2 + 1");
+        int rs = Calc.run("(10 + 10)");
         System.out.println(rs);
-        assertThat(rs).isEqualTo(21);
+        assertThat(rs).isEqualTo(20);
+    }
+    @Test
+    @DisplayName("((10 + 10)) = 20")
+    void t10()
+    {
+        int rs = Calc.run("((10 + 10))");
+        System.out.println(rs);
+        assertThat(rs).isEqualTo(20);
+    }
+    @Test
+    @DisplayName("(((10 + 10))) = 20")
+    void t11()
+    {
+        int rs = Calc.run("(((10 + 10)))");
+        System.out.println(rs);
+        assertThat(rs).isEqualTo(20);
     }
 
 

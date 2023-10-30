@@ -7,8 +7,13 @@ public class Calc
         if (exp.isBlank())
             return 0;
 
+        while (exp.startsWith("(") && exp.endsWith(")"))
+        {
+            exp = exp.substring(1, exp.length() - 1);
+        }
         final String[] expBits = exp.split(" ");
         final String sign = expBits[1];
+
 
         int num1 = Integer.parseInt(expBits[0]);
         int num2 = Integer.parseInt(expBits[2]);
