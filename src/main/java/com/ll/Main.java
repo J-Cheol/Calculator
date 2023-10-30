@@ -4,6 +4,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        new Calc().run("3 * 1");
+
+        System.out.println(Calc.run("3 * 1"));
     }
 }
