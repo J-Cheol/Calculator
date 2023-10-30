@@ -5,9 +5,12 @@ public class Calc
     public static int run(String calc)
     {
         char[] chars = calc.toCharArray();
+        int[] num = new int[chars.length];
+        char operator = ' ';
+
         int num1 = 0;
         int num2 = 0;
-        char operator = ' ';
+
         for (char c : chars)
         {
             if (c >= '0' && c <= '9')
